@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assests'
 import ThemeToggleBtn from './ThemeToggleBtn'
-
-
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className='  h-23 flex justify-between items-center px-3 sm:px-10 lg:px-24 xl:px-40 sticky top-0 z-10 backdrop-blur-xl font-medium'>
+    <div className='  h-22 flex justify-between items-center px-4 sm:px-10 lg:px-24 xl:px-40 sticky top-0 z-10 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/80 '>
 
       {/* this means the below ternary ma , theme by default light raixxa  */}
       <img src={theme === 'dark' ? assets.darktheme_logo : assets.lighttheme_logo} className='  w-23 sm:w-40  bg-red-60 ' alt='' />
-
+{/* //max-sm means mobile format */}
 
       <div className={`flex text-grey-700 dark:text-white sm:text-sm ${!sidebarOpen ? " max-sm:w-0 overflow-hidden" : "max-sm:w-50 max-sm:pl-8"} max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:h-full max-sm:flex-col max-sm:bg-primary max-sm:text-white max-sm:pt-15  sm:items-center gap-6 transition-all`}>
 
