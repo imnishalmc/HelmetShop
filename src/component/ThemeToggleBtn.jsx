@@ -25,9 +25,9 @@ const ThemeToggleBtn = ({ theme, setTheme } )=> {
         <>
             <button>
                 {theme === 'dark' ? (
-                    <img onClick={() => setTheme('light')} src={assets.sun_icon} className='size-7 p-2 border border-gray-500 rounded-full' alt="" />
+                    <img onClick={() => setTheme('light')} src={assets.sun_icon} className='size-9 p-2 border border-gray-500 rounded-full' alt="" />
                 ) : (
-                    <img onClick={() => setTheme('dark')} src={assets.moon_icon} className='size-8 p-1.5 border border-gray-500 rounded-full' alt="" />)
+                    <img onClick={() => setTheme('dark')} src={assets.moon_icon} className='size-9 p-1.5 border border-gray-500 rounded-full' alt="" />)
                 }
             </button>
 
@@ -39,6 +39,7 @@ export default ThemeToggleBtn
 
 
 
+{/* <button>{theme ='dark" ? <img onClick={()=>setTheme('light')} src={}} </button> */}
 // size-8 p-1 border border-gray-500 rounded-full
 
 // (<i onClick={()=>setTheme('light')} className="ri-sun-fill size-3 p-11 border border-gray-500 rounded-full"></i>)
