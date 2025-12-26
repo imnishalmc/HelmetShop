@@ -16,19 +16,19 @@ const Navbar = ({ theme, setTheme }) => {
         <img src={assets.close_icon} alt="" className='w-5 absolute right-9 top-7 sm:hidden' onClick={() => setSidebarOpen(false)} />
         {/* close_icon is white one */}
 
-        <a onClick={() => setSidebarOpen(false)} href="#" className='sm:hover:border-b '>Home</a>
-        <a onClick={() => setSidebarOpen(false)} href="#services" className='sm:hover:border-b '>Services</a>
-        <a onClick={() => setSidebarOpen(false)} href="#about-us" className='sm:hover:border-b '>About Us </a>
-        <a onClick={() => setSidebarOpen(false)} href="#contact-us" className='sm:hover:border-b '>Contact Us </a>
+        <a onClick={() => setSidebarOpen(false)} href="#" className='sm:hover:border-b sm:text-2xl'>Home</a>
+        <a onClick={() => setSidebarOpen(false)} href="#services" className='sm:hover:border-b  sm:text-2xl '>Services</a>
+        <a onClick={() => setSidebarOpen(false)} href="#about-us" className='sm:hover:border-b  sm:text-2xl'>About Us </a>
+        <a onClick={() => setSidebarOpen(false)} href="#contact-us" className='sm:hover:border-b  sm:text-2xl'>Contact Us </a>
       </div>
 
       <div className='flex items-center gap-3 sm:gap-4' >
 
         <ThemeToggleBtn theme={theme} setTheme={setTheme} />
-        <img src={theme == 'dark' ? assets.menu_icon_dark : assets.menu_icon} alt="" onClick={() => setSidebarOpen(true)} className='w-8 sm:hidden' />
+        <img src={theme == 'dark' ? assets.menu_icon_dark : assets.menu_icon} alt="" onClick={() => setSidebarOpen(true)} className='w-8 sm:hidden ' />
 
 
-        <a className='text-sm max-sm:hidden flex items-center gap-3 bg-primary text-white px-6 py-3 rounded-full cursor-pointer hover:scale-100 transition-all' href="#contact-us">
+        <a className='text-sm max-sm:hidden flex items-center gap-3 bg-primary text-white px-6 py-3 rounded-full cursor-pointer hover:scale-100 transition-all sm:text-[16px]' href="#contact-us">
           Connect
         </a>
       </div>

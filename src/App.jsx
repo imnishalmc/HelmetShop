@@ -3,6 +3,8 @@ import Navbar from './component/Navbar'
 import ThemeToggleBtn from './component/ThemeToggleBtn'
 import HeroSection from './component/HeroSection'
 import Companies from './component/Companies'
+import Footer from './component/Footer'
+
 
 const App = () => {
 
@@ -10,8 +12,9 @@ const App = () => {
   return (
     <div className='dark:bg-black relative ' >
       <Navbar theme={theme} setTheme={setTheme} />
-      <HeroSection />
-      <Companies theme={theme} setTheme={setTheme} />
+      <HeroSection  theme={theme} setTheme={setTheme}/>
+<Companies/>
+      <Footer/>
     </div>
   )
 }

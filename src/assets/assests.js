@@ -15,9 +15,9 @@ import helmet3 from './helmet3.png'
 import helmet4 from './helmet4.png'
 import kneepad from './kneepad.png'
 import ktm from './ktm.png'
+import gloves from './gloves.png'
 
-
-
+import agv from './agv.png'
 
 export const assets = {
     darktheme_logo,
@@ -35,5 +35,7 @@ export const assets = {
     helmet3,
     helmet4,
     kneepad,
-    ktm
+    ktm,
+    agv,
+    gloves
 }
