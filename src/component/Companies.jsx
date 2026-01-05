@@ -115,7 +115,7 @@ const Companies = ({theme,setTheme}) => {
                     {
                       opacity: 1,
                       scale: 1,
-                      duration: 0.3,
+                      duration: 10,
                       ease: 'power2.out'
                     },
                     index * 0.1

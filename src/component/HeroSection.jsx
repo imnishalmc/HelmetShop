@@ -19,7 +19,7 @@ const HeroSection = () => {
             <div className='   flex flex-col  p-2 gap-4 relative sm:flex-row '>
 
                 <img className='w-full h-100 max-w-6xl rounded-4xl' src={assets.herophoto} alt="" />
-                <img  className='h-100 w-90 max-w-6xl rounded-4xlz' src={assets.helmet} alt="" />
+                <img  className='h-100 w-90 max-w-6xl rounded-4xl' src={assets.helmet} alt="" />
             </div>
         </div>
     )
