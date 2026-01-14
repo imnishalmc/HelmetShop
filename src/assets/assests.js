@@ -16,9 +16,13 @@ import helmet4 from './helmet4.png'
 import kneepad from './kneepad.png'
 import ktm from './ktm.png'
 import gloves from './gloves.png'
-
+import Gears from './Gears.webp'
+import Repair from './Repair.webp'
+import rider_club from './rider_club.webp'
 import agv from './agv.png'
-
+import adventure from './adventure.webp'
+import tour from './tour.webp'
+import ralley from './ralley.webp'
 export const assets = {
     darktheme_logo,
     lighttheme_logo,
@@ -37,5 +41,11 @@ export const assets = {
     kneepad,
     ktm,
     agv,
-    gloves
+    gloves,
+    adventure,
+    rider_club,
+    Repair,
+    Gears,
+    tour,
+    ralley
 }

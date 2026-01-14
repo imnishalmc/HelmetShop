@@ -4,6 +4,8 @@ import ThemeToggleBtn from './component/ThemeToggleBtn'
 import HeroSection from './component/HeroSection'
 import Companies from './component/Companies'
 import Footer from './component/Footer'
+import Services from './component/Services'
+import OurWork from './component/OurWork'
 
 
 const App = () => {
@@ -14,7 +16,8 @@ const App = () => {
       <Navbar theme={theme} setTheme={setTheme} />
       <HeroSection  theme={theme} setTheme={setTheme}/>
 <Companies/>
-      <Footer/>
+ <Services/>
+<OurWork/>
     </div>
   )
 }
