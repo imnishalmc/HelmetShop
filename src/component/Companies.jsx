@@ -6,6 +6,9 @@ const Companies = ({theme,setTheme}) => {
   const containerRef = useRef(null)
   const scrollWrapperRef = useRef(null)
   const imagesRef = useRef([])
+  const scrollTweenRef = useRef(null)
+  const timelineRef = useRef(null)
+  const imageListenersRef = useRef([])
 
   useEffect(() => {
     // Check if GSAP and ScrollTrigger are available (loaded from CDN)
@@ -36,13 +39,23 @@ const Companies = ({theme,setTheme}) => {
             }
           }
 
+          // Clean up previous image listeners
+          imageListenersRef.current.forEach(({ img, loadHandler, errorHandler }) => {
+            img.removeEventListener('load', loadHandler)
+            img.removeEventListener('error', errorHandler)
+          })
+          imageListenersRef.current = []
+
           // Check if images are already loaded
           images.forEach(img => {
             if (img.complete) {
               checkImagesLoaded()
             } else {
-              img.addEventListener('load', checkImagesLoaded)
-              img.addEventListener('error', checkImagesLoaded) // Also proceed if image fails to load
+              const loadHandler = checkImagesLoaded
+              const errorHandler = checkImagesLoaded
+              img.addEventListener('load', loadHandler)
+              img.addEventListener('error', errorHandler)
+              imageListenersRef.current.push({ img, loadHandler, errorHandler })
             }
           })
 
@@ -52,6 +65,16 @@ const Companies = ({theme,setTheme}) => {
           }
 
           function performScroll() {
+            // Kill existing ScrollTriggers for this component
+            if (scrollTweenRef.current) {
+              scrollTweenRef.current.kill()
+              scrollTweenRef.current = null
+            }
+            if (timelineRef.current) {
+              timelineRef.current.kill()
+              timelineRef.current = null
+            }
+
             // Get the visible container width (accounting for padding)
             const containerRect = container.getBoundingClientRect()
             const containerWidth = containerRect.width
@@ -71,15 +94,8 @@ const Companies = ({theme,setTheme}) => {
 
             // Only animate if there's content to scroll
             if (scrollDistance > 0) {
-              // Kill any existing ScrollTriggers for this container
-              ScrollTrigger.getAll().forEach(trigger => {
-                if (trigger.trigger === container || trigger.vars?.trigger === container) {
-                  trigger.kill()
-                }
-              })
-
               // Create horizontal scroll animation tied to vertical scroll
-              gsap.to(wrapper, {
+              const scrollAnimation = gsap.to(wrapper, {
                 x: -scrollDistance,
                 ease: 'none',
                 scrollTrigger: {
@@ -89,9 +105,11 @@ const Companies = ({theme,setTheme}) => {
                   pin: true,
                   scrub: 1,
                   anticipatePin: 1,
-                  invalidateOnRefresh: true, // Recalculate on refresh
+                  invalidateOnRefresh: true,
                 }
               })
+              
+              scrollTweenRef.current = scrollAnimation
 
               // Also animate each image with fade-in effect
               const tl = gsap.timeline({
@@ -103,6 +121,8 @@ const Companies = ({theme,setTheme}) => {
                   invalidateOnRefresh: true,
                 }
               })
+
+              timelineRef.current = tl
 
               imagesRef.current.forEach((image, index) => {
                 if (image) {
@@ -127,7 +147,7 @@ const Companies = ({theme,setTheme}) => {
         }
 
         // Calculate after a delay to ensure DOM is ready
-        setTimeout(calculateScroll, 200)
+        const timeoutId = setTimeout(calculateScroll, 200)
         
         // Recalculate on window resize
         const handleResize = () => {
@@ -135,14 +155,28 @@ const Companies = ({theme,setTheme}) => {
         }
         window.addEventListener('resize', handleResize)
 
+        // Single cleanup function for everything
         return () => {
+          clearTimeout(timeoutId)
           window.removeEventListener('resize', handleResize)
+          
+          // Clean up image listeners
+          imageListenersRef.current.forEach(({ img, loadHandler, errorHandler }) => {
+            img.removeEventListener('load', loadHandler)
+            img.removeEventListener('error', errorHandler)
+          })
+          imageListenersRef.current = []
+          
+          // Clean up ScrollTriggers for this component only
+          if (scrollTweenRef.current) {
+            scrollTweenRef.current.kill()
+            scrollTweenRef.current = null
+          }
+          if (timelineRef.current) {
+            timelineRef.current.kill()
+            timelineRef.current = null
+          }
         }
-      }
-
-      // Cleanup on unmount
-      return () => {
-        ScrollTrigger.getAll().forEach(trigger => trigger.kill())
       }
     }
   }, [])
@@ -163,7 +197,7 @@ const Companies = ({theme,setTheme}) => {
       ref={containerRef}
       className='w-full  py-10 px-10 sm:px-12 lg:px-24 xl:px-40  overflow-hidden dark:text-white '
     >
-      <h1 className='text-3xl font-medium max-w-6xl sm:text-[43px] xl:text-[70px]  px-4 sm:px-8 md:px-12 lg:px-20 xl:px-24 mt-8 sm:mt-12 md:mt-16 lg:mt-20 ml-4 sm:ml-6 md:ml-8 lg:ml-[120px] xl:ml-[150px] mb-8 sm:mb-12' >
+      <h1  className='text-center text-3xl sm:text-4xl'>
         YOUR MOST <span className='bg-gradient-to-r from-[#1c22bc] to-[#4D8AEA] bg-clip-text text-transparent'>LOVED</span> ITEMS
       </h1>
       <div className='max-w-full mx-auto overflow-hidden'>

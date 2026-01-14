@@ -21,6 +21,8 @@ import Repair from './Repair.webp'
 import rider_club from './rider_club.webp'
 import agv from './agv.png'
 import adventure from './adventure.webp'
+import tour from './tour.webp'
+import ralley from './ralley.webp'
 export const assets = {
     darktheme_logo,
     lighttheme_logo,
@@ -43,5 +45,7 @@ export const assets = {
     adventure,
     rider_club,
     Repair,
-    Gears
+    Gears,
+    tour,
+    ralley
 }

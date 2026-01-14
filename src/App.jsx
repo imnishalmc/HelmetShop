@@ -5,6 +5,7 @@ import HeroSection from './component/HeroSection'
 import Companies from './component/Companies'
 import Footer from './component/Footer'
 import Services from './component/Services'
+import OurWork from './component/OurWork'
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
       <HeroSection  theme={theme} setTheme={setTheme}/>
 <Companies/>
  <Services/>
+<OurWork/>
     </div>
   )
 }

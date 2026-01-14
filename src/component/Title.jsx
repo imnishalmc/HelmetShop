@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Title = ({title, desc}) => {
+const Title = ({title,desc,descs}) => {
   return (
-    <div className='bg-red-600'>
-
-<h2 className='text-3xl sm:text-5xl font-medium '>{title}</h2>
-<p className=' max-w-lg text-center text-gray-500 dark:text-white/78 mb-6'>{desc}</p>
-    </div>
+    <div className='text-5xl flex flex-col justify-center items-center m-0 dark:text-white mb-8'>
+    <h1 className='leading-15'>{title}</h1>
+    <p className='m-2 bg-gradient-to-r from-[#1c22bc] to-[#4D8AEA] bg-clip-text text-transparent'>{desc}</p>
+    <p id ='ourwork' className='text-xl '>{descs}</p>
+  </div>
   )
 }
 

@@ -1,44 +1,40 @@
 import React from 'react'
 import { assets } from '../assets/assests'
+ import ServiceProvider from './ServiceProvider'
 import Title from './Title'
 const Services = () => {
-
-    const servicesData=[
-        {
-            title:'Repair',
-            description:"You domt have to worry about the repairing , we are here ",
-            icon: assets.Repair
-        },
-        {
-            title: "Gears",
-            description:"we have everything that increase your saftey and swag",
-            icon :assets.Gears
-        },
-        {
-        title: "Bikers Club",
-        description :" we have a community to match your energy and passion",
-         icon: assets.rider_club
-        },
-        {
-            title: "Arrange Your Adventure",
-            description :" We are always there for you to help and plan your adventure ",
-             icon:assets.adventure
-        }
-    ]
+  const servicesData=[
+    {
+        title:'Repair',
+        description:"You don't have to worry about the repairing",
+        icon: assets.Repair
+    },
+    {
+        title: "Gears",
+        description:"we have everything that increase your saftey and swag",
+        icon :assets.Gears
+    },
+    {
+    title: "Bikers Club",
+    description :" we have a community to match your energy and passion",
+     icon: assets.rider_club
+    },
+    {
+        title: "Arrange  Adventure",
+        description :" We are always there for you to plan your adventure ",
+         icon:assets.adventure
+    }
+]
+  
   return (
-    <div>
-<div id ='services' className='  bg-amber-500 relative flex flex-col items-center gap-7  sm:px-1 lg:px-4 xl:px-40 pt-4 text-gray-700 dark:text-white'>
-
-<Title title=' How can we help you?' desc ='We are always there to help you'/>
-{servicesData.map((x) => (
-    <div key={x.title}>
-      <img src={x.icon} alt={x.title} />
-      <h3>{x.title}</h3>
-      <p>{x.description}</p>
-    </div>
-  ))}
-
-</div>
+    <div id='services' className='py-8 px-4 sm:px-6 lg:px-12 xl:px-40'>
+     <Title title='How can we Help you' desc ='Remember Us '/>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-3 lg:mx-28 '>
+        {servicesData.map((service,index)=>{
+          return <ServiceProvider key={index} icon={service.icon} title={service.title} description={service.description} />
+        })}
+      </div>
+      
 
 
     </div>
