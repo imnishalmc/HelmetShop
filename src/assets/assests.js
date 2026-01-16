@@ -23,6 +23,8 @@ import agv from './agv.png'
 import adventure from './adventure.webp'
 import tour from './tour.webp'
 import ralley from './ralley.webp'
+import Blacklogo from './Blacklogo.webp'
+import Whitelogo from './Whitelogo.png'
 export const assets = {
     darktheme_logo,
     lighttheme_logo,
@@ -47,5 +49,15 @@ export const assets = {
     Repair,
     Gears,
     tour,
-    ralley
+    ralley,
+    Whitelogo,
+    Blacklogo
 }
+
+export  const BranchDetail = [
+{
+name : "HelmateMandu" , location:"Kathmandu"},
+{ name : "LakeSide Helmet Shop", location :"Pokhara"},
+{ name : "Butwal Helmet Shop" , location:"Butwal"},
+{ name : "Nisha Helmet Shop" , location:"Lalitpur"}
+]

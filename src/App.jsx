@@ -6,6 +6,8 @@ import Companies from './component/Companies'
 import Footer from './component/Footer'
 import Services from './component/Services'
 import OurWork from './component/OurWork'
+import Branch from './component/Branch'
+import ContactUs from './component/ContactUs'
 
 
 const App = () => {
@@ -18,6 +20,8 @@ const App = () => {
 <Companies/>
  <Services/>
 <OurWork/>
+<Branch theme= {theme} setTheme={setTheme}/>
+<ContactUs/>
     </div>
   )
 }
