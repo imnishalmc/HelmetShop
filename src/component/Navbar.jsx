@@ -5,7 +5,7 @@ const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
-    <div className='  h-22 flex justify-between items-center px-4 sm:px-10 lg:px-24 xl:px-40 sticky top-0 z-10 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/80 '>
+    <div className='  h-22 flex justify-between items-center px-4 sm:px-10 lg:px-24 xl:px-40 sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/80 '>
 
       {/* this means the below ternary ma , theme by default light raixxa  */}
       <img src={theme === 'dark' ? assets.darktheme_logo : assets.lighttheme_logo} className='  w-23 sm:w-40  bg-red-60 ' alt='' />
@@ -18,7 +18,7 @@ const Navbar = ({ theme, setTheme }) => {
 
         <a onClick={() => setSidebarOpen(false)} href="#" className='sm:hover:border-b sm:text-2xl'>Home</a>
         <a onClick={() => setSidebarOpen(false)} href="#services" className='sm:hover:border-b  sm:text-2xl '>Services</a>
-        <a onClick={() => setSidebarOpen(false)} href="#about-us" className='sm:hover:border-b  sm:text-2xl'>About Us </a>
+        <a onClick={() => setSidebarOpen(false)} href="#branches" className='sm:hover:border-b  sm:text-2xl'>Our Branches </a>
         <a onClick={() => setSidebarOpen(false)} href="#contact-us" className='sm:hover:border-b  sm:text-2xl'>Contact Us </a>
       </div>
 

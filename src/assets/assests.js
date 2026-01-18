@@ -25,6 +25,9 @@ import tour from './tour.webp'
 import ralley from './ralley.webp'
 import Blacklogo from './Blacklogo.webp'
 import Whitelogo from './Whitelogo.png'
+import person_icon from './person_icon.svg'
+import email_icon from './email_icon.svg'
+import arrow_icon from './arrow_icon.svg'
 export const assets = {
     darktheme_logo,
     lighttheme_logo,
@@ -51,7 +54,11 @@ export const assets = {
     tour,
     ralley,
     Whitelogo,
-    Blacklogo
+    Blacklogo,
+    person_icon,
+    email_icon ,
+    arrow_icon
+
 }
 
 export  const BranchDetail = [
