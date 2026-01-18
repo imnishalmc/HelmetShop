@@ -8,6 +8,7 @@ import Services from './component/Services'
 import OurWork from './component/OurWork'
 import Branch from './component/Branch'
 import ContactUs from './component/ContactUs'
+import {  Toaster } from 'react-hot-toast'
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
   return (
     <div className='dark:bg-black relative ' >
+      <Toaster/>
       <Navbar theme={theme} setTheme={setTheme} />
       <HeroSection  theme={theme} setTheme={setTheme}/>
 <Companies/>
@@ -22,6 +24,7 @@ const App = () => {
 <OurWork/>
 <Branch theme= {theme} setTheme={setTheme}/>
 <ContactUs/>
+<Footer theme={theme} setTheme={setTheme}/>
     </div>
   )
 }
